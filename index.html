@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>France · A Fortnight by Road — August 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f1e9d9;
+    --ink:#2b2520;
+    --ink-soft:#5d544a;
+    --wine:#7c2733;
+    --gilt:#a9842f;
+    --line:#cdbf9f;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:'Spectral',Georgia,serif;font-weight:400;
+    font-size:18px;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;
+    opacity:.5;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/></svg>");
+  }
+  img{display:block;width:100%;height:100%;object-fit:cover;}
+  #bar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--wine);z-index:9500;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;height:100vh;min-height:640px;
+    display:flex;flex-direction:column;justify-content:flex-end;
+    padding:0 6vw 8vh;color:#f6efdf;overflow:hidden;
+  }
+  .hero-img{position:absolute;inset:0;z-index:-2;}
+  .hero-img img{filter:saturate(.92) brightness(.86);}
+  .hero::after{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(180deg,rgba(20,14,10,.35) 0%,rgba(20,14,10,.05) 38%,rgba(20,14,10,.62) 100%);
+  }
+  .hero .kicker{
+    font-size:.82rem;letter-spacing:.42em;text-transform:uppercase;font-weight:500;margin-bottom:1.4rem;
+    opacity:0;animation:rise 1.1s .2s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+  .hero h1{
+    font-family:'Fraunces',serif;font-weight:300;font-size:clamp(4rem,15vw,12.5rem);
+    line-height:.9;letter-spacing:-.02em;
+    opacity:0;animation:rise 1.2s .4s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+  .hero h1 em{font-style:italic;font-weight:400;color:#e7c98c;}
+  .hero .sub{
+    margin-top:1.6rem;max-width:34ch;font-size:1.16rem;font-weight:300;line-height:1.6;
+    opacity:0;animation:rise 1.2s .65s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+  .hero .meta{
+    margin-top:2rem;display:flex;gap:1.6rem;align-items:center;flex-wrap:wrap;
+    font-size:.8rem;letter-spacing:.26em;text-transform:uppercase;
+    opacity:0;animation:rise 1.2s .85s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+  .hero .meta span{display:flex;gap:1.6rem;align-items:center;}
+  .hero .meta i{width:5px;height:5px;background:#e7c98c;border-radius:50%;display:inline-block;font-style:normal;}
+  @keyframes rise{from{opacity:0;transform:translateY(38px);}to{opacity:1;transform:none;}}
+  .scrolldown{
+    position:absolute;right:6vw;bottom:7vh;writing-mode:vertical-rl;
+    font-size:.68rem;letter-spacing:.34em;text-transform:uppercase;
+    display:flex;align-items:center;gap:1rem;
+    opacity:0;animation:rise 1.2s 1.05s forwards;
+  }
+  .scrolldown::after{content:"";width:1px;height:54px;background:#e7c98c;}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 6vw;}
+
+  /* ---------- PROLOGUE ---------- */
+  .prologue{padding:13vh 0 8vh;}
+  .ornament{text-align:center;color:var(--wine);font-size:1.3rem;letter-spacing:.6em;margin-bottom:3.2rem;}
+  .prologue .lead{
+    font-family:'Fraunces',serif;font-weight:300;
+    font-size:clamp(1.7rem,4.2vw,3.05rem);line-height:1.28;letter-spacing:-.012em;
+    max-width:20ch;margin:0 auto 1.4rem;text-align:center;
+  }
+  .prologue .lead em{font-style:italic;color:var(--wine);}
+  .prologue p.body{max-width:54ch;margin:0 auto;text-align:center;color:var(--ink-soft);font-size:1.08rem;}
+  .route{margin-top:6.5vh;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .stop{
+    display:grid;grid-template-columns:auto 1fr auto;gap:1.6rem;align-items:baseline;
+    padding:1.35rem .4rem;border-bottom:1px solid var(--line);
+  }
+  .stop:last-child{border-bottom:none;}
+  .stop .no{font-family:'Fraunces',serif;font-size:1rem;color:var(--wine);font-weight:500;letter-spacing:.05em;width:2.4rem;}
+  .stop .nm{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:400;}
+  .stop .nm small{display:block;font-family:'Spectral';font-size:.82rem;font-weight:400;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-top:.25rem;}
+  .stop .dt{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);text-align:right;}
+  .stop .dt b{display:block;color:var(--wine);font-weight:500;font-size:1.5rem;font-family:'Fraunces';letter-spacing:0;}
+
+  /* ---------- CHAPTERS ---------- */
+  .chapter{padding:11vh 0 4vh;}
+  .ch-head{margin-bottom:3.2rem;}
+  .ch-eyebrow{
+    display:flex;align-items:baseline;gap:.95rem;margin-bottom:1rem;
+    font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);
+  }
+  .ch-rn{
+    font-family:'Fraunces',serif;font-weight:400;font-style:italic;
+    font-size:2.7rem;line-height:1;letter-spacing:0;color:var(--wine);text-transform:none;
+  }
+  .ch-title{
+    font-family:'Fraunces',serif;font-weight:300;
+    font-size:clamp(2.5rem,6.4vw,5rem);line-height:1.04;letter-spacing:-.018em;
+  }
+  .ch-title em{font-style:italic;color:var(--wine);}
+  .ch-region{
+    margin-top:1.15rem;font-size:.82rem;letter-spacing:.26em;text-transform:uppercase;
+    color:var(--ink-soft);display:flex;gap:1.1rem;align-items:center;flex-wrap:wrap;
+  }
+  .ch-region i{width:5px;height:5px;background:var(--gilt);border-radius:50%;font-style:normal;}
+
+  .lead-frame{overflow:hidden;margin:0 0 3.4rem;border:1px solid var(--line);}
+  .lead-frame img{aspect-ratio:16/9;transition:transform 9s ease;}
+  .lead-frame:hover img{transform:scale(1.05);}
+
+  .ch-text{display:grid;grid-template-columns:1fr 1fr;gap:3.4rem;margin-bottom:5.5vh;}
+  .ch-text .col p+p{margin-top:1.1rem;}
+  .ch-text .col:first-child p:first-child::first-letter{
+    font-family:'Fraunces',serif;font-weight:400;float:left;
+    font-size:4.6rem;line-height:.78;padding:.34rem .5rem 0 0;color:var(--wine);
+  }
+  .ch-text .col.aside{border-left:1px solid var(--line);padding-left:3.4rem;}
+  .aside .tag{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--wine);margin-bottom:.7rem;}
+  .aside .stay-name{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:400;line-height:1.15;margin-bottom:.5rem;}
+  .aside p{color:var(--ink-soft);font-size:1.02rem;}
+  .aside a{
+    display:inline-block;margin-top:1.1rem;color:var(--wine);text-decoration:none;
+    font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;
+    border-bottom:1px solid var(--wine);padding-bottom:3px;
+  }
+  .aside a:hover{color:var(--ink);border-color:var(--ink);}
+
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;}
+  figure{overflow:hidden;margin:0;}
+  figure.wide{grid-column:1/-1;}
+  .ph{overflow:hidden;border:1px solid var(--line);}
+  .ph img{transition:transform 8s ease;}
+  figure:hover .ph img{transform:scale(1.055);}
+  figure.wide .ph img{aspect-ratio:21/9;}
+  figure:not(.wide) .ph img{aspect-ratio:4/3;}
+  figcaption{padding:.85rem .1rem 0;}
+  figcaption b{
+    font-family:'Spectral';font-weight:500;color:var(--wine);
+    font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;display:block;margin-bottom:.2rem;
+  }
+  figcaption span{font-style:italic;color:var(--ink-soft);font-size:.98rem;line-height:1.5;}
+
+  /* ---------- EPILOGUE ---------- */
+  .epilogue{padding:13vh 0 9vh;text-align:center;}
+  .epilogue .ch-title{margin-bottom:1.6rem;}
+  .epilogue p{max-width:50ch;margin:0 auto;color:var(--ink-soft);}
+  .signoff{
+    margin-top:4.4rem;padding-top:3rem;border-top:1px solid var(--line);
+    font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);
+  }
+  .signoff b{color:var(--wine);font-weight:500;}
+  .imgnote{margin-top:1.4rem;font-size:.74rem;letter-spacing:.04em;text-transform:none;
+    color:var(--ink-soft);font-style:italic;opacity:.8;}
+
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:none;}
+  .gallery figure.reveal{transition-delay:var(--d,0s);}
+
+  @media(max-width:760px){
+    body{font-size:17px;}
+    .hero{padding:0 8vw 9vh;}
+    .ch-text{grid-template-columns:1fr;gap:2.2rem;}
+    .ch-text .col.aside{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:2rem;}
+    .gallery{grid-template-columns:1fr;}
+    figure.wide{grid-column:auto;}
+    figure.wide .ph img,figure:not(.wide) .ph img{aspect-ratio:4/3;}
+    .stop{grid-template-columns:auto 1fr;gap:1rem;}
+    .stop .dt{grid-column:2;text-align:left;margin-top:.3rem;}
+    .scrolldown{display:none;}
+  }
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="hero-img">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Chateau_de_Chenonceau_2008E_%28adjusted2%29.jpg?width=2400" alt="Château de Chenonceau over the river Cher">
+  </div>
+  <p class="kicker">A Journey for Two · Summer MMXXVI</p>
+  <h1>France,<br><em>by road</em></h1>
+  <p class="sub">A fortnight through château country — Burgundy, the Dordogne, the Loire and Alsace — from our own front door and back.</p>
+  <div class="meta">
+    <span><i></i>15 – 28 August 2026</span>
+    <span><i></i>13 nights · 5 regions</span>
+    <span><i></i>For Janine</span>
+  </div>
+  <div class="scrolldown">The itinerary</div>
+</header>
+
+<!-- ================= PROLOGUE ================= -->
+<section class="prologue wrap">
+  <div class="ornament reveal">✦ &nbsp; ✦ &nbsp; ✦</div>
+  <h2 class="lead reveal">Two weeks of <em>castles, old stone &amp; long dinners</em> — unhurried, all the way.</h2>
+  <p class="body reveal">We leave Dällikon with the car loaded and no need to rush. The trip draws a slow loop through France — wine towns, medieval villages, clifftop fortresses and the gardens between them — and brings us home through Alsace, two hours from our door.</p>
+
+  <div class="route reveal">
+    <div class="stop"><span class="no">I</span><span class="nm">Beaune<small>Burgundy</small></span><span class="dt"><b>2</b>nights · 15–17 Aug</span></div>
+    <div class="stop"><span class="no">II</span><span class="nm">Saint-Émilion<small>Bordeaux wine country</small></span><span class="dt"><b>1</b>night · 17–18 Aug</span></div>
+    <div class="stop"><span class="no">III</span><span class="nm">Sarlat<small>Dordogne · Périgord</small></span><span class="dt"><b>5</b>nights · 18–23 Aug</span></div>
+    <div class="stop"><span class="no">IV</span><span class="nm">Amboise<small>Loire Valley</small></span><span class="dt"><b>3</b>nights · 23–26 Aug</span></div>
+    <div class="stop"><span class="no">V</span><span class="nm">Riquewihr<small>Alsace</small></span><span class="dt"><b>2</b>nights · 26–28 Aug</span></div>
+  </div>
+</section>
+
+<!-- ================= CHAPTER I ================= -->
+<section class="chapter wrap">
+  <div class="ch-head reveal">
+    <p class="ch-eyebrow"><span class="ch-rn">I</span><span>The first chapter</span></p>
+    <h1 class="ch-title">Beaune, <em>Burgundy</em></h1>
+    <div class="ch-region"><span>15–17 August</span><i></i><span>Two nights</span><i></i><span>The gentle start</span></div>
+  </div>
+  <div class="lead-frame reveal">
+    <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Beaune_-_H%C3%B4tel-Dieu_-_Cour_-_02.jpg?width=1600" alt="The courtyard of the Hospices de Beaune">
+  </div>
+  <div class="ch-text reveal">
+    <div class="col">
+      <p>The journey opens softly. Four hours from home, the walled wine town of Beaune is the perfect place to shake off the road — cobbled lanes, a ramparts walk, and the famous Hôtel-Dieu with its glittering diamond-tiled roof and a Flemish masterpiece hidden inside.</p>
+      <p>An afternoon belongs to the cellars: Beaune sits at the heart of the Côte d'Or, and a first glass of Burgundy is poured underground, where it has always been.</p>
+    </div>
+    <div class="col aside">
+      <div class="tag">Where we rest</div>
+      <div class="stay-name">Hôtel Les Remparts</div>
+      <p>A four-star home in a 17th-century mansion against the old ramparts — rooms named for vineyards, a quiet courtyard, the old town at the door.</p>
+      <a href="https://www.hotel-remparts-beaune.com" target="_blank" rel="noopener">See the hotel ↗</a>
+    </div>
+  </div>
+  <div class="gallery">
+    <figure class="wide reveal"><div class="ph"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Beaune_-_H%C3%B4tel-Dieu_-_Cour_-_05.jpg?width=1400" alt="Hospices de Beaune roof"></div><figcaption><b>Hospices de Beaune</b><span>The legendary polychrome roof — one of France's most photographed sights.</span></figcaption></figure>
+    <figure class="wide reveal"><div class="ph"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/IMG_Vignoble_de_Volnay.JPG?width=1400" alt="Burgundy vineyards at Volnay"></div><figcaption><b>The Côte d'Or</b><span>Pinot Noir vines spilling down the slopes around Beaune.</span></figcaption></figure>
+  </div>
+</section>
+
+<!-- ================= CHAPTER II ================= -->
+<section class="chapter wrap">
+  <div class="ch-head reveal">
+    <p class="ch-eyebrow"><span class="ch-rn">II</span><span>An interlude</span></p>
+    <h1 class="ch-title">Saint-<em>Émilion</em></h1>
+    <div class="ch-region"><span>17–18 August</span><i></i><span>One night</span><i></i><span>Among the vines</span></div>
+  </div>
+  <div class="lead-frame reveal">
+    <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/1_Saint-%C3%89milion_aerial_pano_2016.jpg?width=1600" alt="Aerial view of Saint-Émilion">
+  </div>
+  <div class="ch-text reveal">
+    <div class="col">
+      <p>One golden night, and worth every kilometre. Saint-Émilion is a medieval village carved from honey-coloured limestone, ringed by some of the most famous vineyards on earth — a UNESCO town where old stone and great wine are the same thing.</p>
+      <p>We arrive as the light turns, wander the steep lanes, and let the evening be slow.</p>
+    </div>
+    <div class="col aside">
+      <div class="tag">Where we rest</div>
+      <div class="stay-name">On a wine estate — Le Relais de Franc Mayne</div>
+      <p>A night in the vines: the guest house of a Saint-Émilion Grand Cru Classé, a walk from the village, with a cellar tour and tasting of our own.</p>
+      <a href="https://www.chateaufrancmayne.com" target="_blank" rel="noopener">See the estate ↗</a>
+    </div>
+  </div>
+  <div class="gallery">
+    <figure class="reveal"><div class="ph"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Portail_%C3%A9glise_monolithe.jpg?width=1100" alt="Portal of the monolithic church"></div><figcaption><b>The Monolithic Church</b><span>An entire church hewn from the living rock beneath the village.</span></figcaption></figure>
+    <figure class="reveal" style="--d:.12s"><div class="ph"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/StEmilion32_Waigudd_Clos_Fourtet_wn.jpg?width=1100" alt="Clos Fourtet vineyard"></div><figcaption><b>Grand Cru plateau</b><span>Ancient walls and vines at the edge of town — a tasting for Alex.</span></figcaption></figure>
+  </div>
+</section>
+
+<!-- ================= CHAPTER III ================= -->
+<section class="chapter wrap">
+  <div class="ch-head reveal">
+    <p class="ch-eyebrow"><span class="ch-rn">III</span><span>The heart of the trip</span></p>
+    <h1 class="ch-title">The <em>Dordogne</em></h1>
+    <div class="ch-region"><span>18–23 August</span><i></i><span>Five nights · Sarlat</span><i></i><span>Castles &amp; cliffs</span></div>
+  </div>
+  <div class="lead-frame reveal">
+    <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/1_sarlat_la_caneda_2016.jpg?width=1600" alt="Rooftops of Sarlat-la-Canéda">
+  </div>
+  <div class="ch-text reveal">
+    <div class="col">
+      <p>Five unhurried nights in the loveliest corner of the trip. Sarlat is one of France's finest medieval towns — golden stone, a market morning, lanes that ask to be wandered. From here the days fan out gently: clifftop fortresses facing one another across the river, villages clinging to the rock, prehistoric paintings, and a pilgrim sanctuary built into a cliff.</p>
+      <p>One evening, the gardens of Marqueyssac are lit by thousands of candles. There is a pool for the hot afternoons, and no day asks for more than one beautiful thing.</p>
+    </div>
+    <div class="col aside">
+      <div class="tag">Where we rest</div>
+      <div class="stay-name">Hôtel La Hoirie</div>
+      <p>A 13th-century farmstead in a green park just outside Sarlat — a pool, deep quiet, and the medieval town a short drive away.</p>
+      <a href="https://www.lahoirie.com" target="_blank" rel="noopener">See the hotel ↗</a>
+    </div>
+  </div>
+  <div class="gallery">
+    <figure class="wide reveal"><div class="ph"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Castle_of_Beynac_27.jpg?width=1400" alt="Château de Beynac"></div><figcaption><b>Château de Beynac</b><span>A fortress on a sheer cliff above the Dordogne river.</span></figcaption></figure>
+    <figure class="reveal"><div class="ph"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Castle_of_Castelnaud_25.jpg?width=1100" alt="Château de Castelnaud"></div><figcaption><b>Château de Castelnaud</b><span>Beynac's rival across the valley — and its medieval-warfare museum.</span></figcaption></figure>
+    <figure class="reveal" style="--d:.12s"><div class="ph"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/La_Roque-Gageac_-_01.jpg?width=1100" alt="La Roque-Gageac"></div><figcaption><b>La Roque-Gageac</b><span>Stone houses pressed between cliff and river.</span></figcaption></figure>
+    <figure class="reveal"><div class="ph"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Domme_1_GhezoArt.jpg?width=1100" alt="Domme bastide village"></div><figcaption><b>Domme</b><span>A golden hilltop bastide with the whole valley at its feet.</span></figcaption></figure>
+    <figure class="reveal" style="--d:.12s"><div class="ph"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Castle_of_Marqueyssac_24.jpg?width=1100" alt="Gardens of Marqueyssac"></div><figcaption><b>Marqueyssac</b><span>Sculpted boxwood gardens — and a candlelit evening in summer.</span></figcaption></figure>
+    <figure class="wide reveal"><div class="ph"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lascaux_painting.jpg?width=1400" alt="Lascaux cave paintings"></div><figcaption><b>Lascaux</b><span>Paleolithic bulls painted on the cave walls 17,000 years ago.</span></figcaption></figure>
+    <figure class="wide reveal"><div class="ph"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Rocamadour%2C_Lot%2C_Midi-Pyr%C3%A9n%C3%A9es%2C_france.jpg?width=1400" alt="Rocamadour"></div><figcaption><b>Rocamadour</b><span>A clifftop pilgrimage sanctuary stacked in tiers above the gorge.</span></figcaption></figure>
+  </div>
+</section>
+
+<!-- ================= CHAPTER IV ================= -->
+<section class="chapter wrap">
+  <div class="ch-head reveal">
+    <p class="ch-eyebrow"><span class="ch-rn">IV</span><span>Château country</span></p>
+    <h1 class="ch-title">The <em>Loire</em> Valley</h1>
+    <div class="ch-region"><span>23–26 August</span><i></i><span>Three nights · Amboise</span><i></i><span>Kings &amp; Leonardo</span></div>
+  </div>
+  <div class="lead-frame reveal">
+    <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ch%C3%A2teau_et_tour_des_Minimes_%28Amboise%29.jpg?width=1600" alt="Château d'Amboise">
+  </div>
+  <div class="ch-text reveal">
+    <div class="col">
+      <p>Northward into the valley of the kings. Amboise is a handsome town beneath its royal château, and the days here belong to the great houses of the Renaissance — Chenonceau arching over its river, the fantastical roofscape of Chambord, and Clos Lucé, where Leonardo da Vinci spent his last years.</p>
+      <p>One château a day, a tasting of Vouvray in between, and evenings by the floodlit walls above the Loire.</p>
+    </div>
+    <div class="col aside">
+      <div class="tag">Where we rest</div>
+      <div class="stay-name">Le Manoir Saint-Thomas</div>
+      <p>A 12th-century manor in the old town — gardens, a pool, and breakfast included — the most-loved address in Amboise.</p>
+      <a href="https://www.manoir-saint-thomas.com" target="_blank" rel="noopener">See the hotel ↗</a>
+    </div>
+  </div>
+  <div class="gallery">
+    <figure class="wide reveal"><div class="ph"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Chateau_de_Chenonceau_2008E_%28adjusted2%29.jpg?width=1400" alt="Château de Chenonceau"></div><figcaption><b>Chenonceau</b><span>The "Ladies' Château", arching gracefully across the river Cher.</span></figcaption></figure>
+    <figure class="reveal"><div class="ph"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Aerial_image_of_Ch%C3%A2teau_de_Chambord_%28view_from_the_southeast%29.jpg?width=1100" alt="Château de Chambord"></div><figcaption><b>Chambord</b><span>A forest of towers and chimneys rising from the woods.</span></figcaption></figure>
+    <figure class="reveal" style="--d:.12s"><div class="ph"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Clos_luce_04.jpg?width=1100" alt="Clos Lucé"></div><figcaption><b>Clos Lucé</b><span>The rose-brick manor where Leonardo da Vinci spent his final years.</span></figcaption></figure>
+    <figure class="reveal"><div class="ph"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Louis_XII_wing_of_the_castle_of_Blois_01.jpg?width=1100" alt="Château de Blois"></div><figcaption><b>Blois</b><span>Four centuries of French architecture around a single courtyard.</span></figcaption></figure>
+    <figure class="reveal" style="--d:.12s"><div class="ph"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/AmboiseRue.JPG?width=1100" alt="Street in Amboise"></div><figcaption><b>Amboise</b><span>Renaissance façades along the streets of our base town.</span></figcaption></figure>
+  </div>
+</section>
+
+<!-- ================= CHAPTER V ================= -->
+<section class="chapter wrap">
+  <div class="ch-head reveal">
+    <p class="ch-eyebrow"><span class="ch-rn">V</span><span>The final chapter</span></p>
+    <h1 class="ch-title">Riquewihr, <em>Alsace</em></h1>
+    <div class="ch-region"><span>26–28 August</span><i></i><span>Two nights</span><i></i><span>Rest &amp; the table we love</span></div>
+  </div>
+  <div class="lead-frame reveal">
+    <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/0_Riquewihr_%281%29.jpg?width=1600" alt="Riquewihr">
+  </div>
+  <div class="ch-text reveal">
+    <div class="col">
+      <p>The trip ends where we always like it to — among the fairy-tale half-timbered villages of Alsace, two hours from home. These last two days ask for nothing: the spa, a wander through Riquewihr and its neighbours, a vineyard or a hilltop castle if we feel like it.</p>
+      <p>And the evening we look forward to all year — dinner at <em>La Table du Gourmet</em>, our table in Riquewihr.</p>
+    </div>
+    <div class="col aside">
+      <div class="tag">Where we rest</div>
+      <div class="stay-name">Le Chambard, Kaysersberg</div>
+      <p>A five-star Relais &amp; Châteaux with a true spa, in a beautiful wine village — the relaxing finish, a clear step up from years past.</p>
+      <a href="https://www.lechambard.fr" target="_blank" rel="noopener">See the hotel ↗</a>
+    </div>
+  </div>
+  <div class="gallery">
+    <figure class="wide reveal"><div class="ph"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Vue_du_ch%C3%A2teau_sur_la_plaine_d%27Alsace_%28au_fond%2C_la_For%C3%AAt-Noire%29.jpg?width=1400" alt="Château du Haut-Koenigsbourg"></div><figcaption><b>Haut-Kœnigsbourg</b><span>A red-sandstone fortress over the whole Alsace plain.</span></figcaption></figure>
+    <figure class="reveal"><div class="ph"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Kaysersberg.jpg?width=1100" alt="Kaysersberg"></div><figcaption><b>Kaysersberg</b><span>Our village for the nights — a ruined keep above the vines.</span></figcaption></figure>
+    <figure class="reveal" style="--d:.12s"><div class="ph"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ribeauvill%C3%A9_castle.jpg?width=1100" alt="Ribeauvillé"></div><figcaption><b>Ribeauvillé</b><span>Medieval towers standing watch over the Alsatian plain.</span></figcaption></figure>
+    <figure class="wide reveal"><div class="ph"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Street-in-Eguisheim.jpg?width=1400" alt="Eguisheim"></div><figcaption><b>Eguisheim</b><span>Concentric rings of pastel houses — often called France's prettiest village.</span></figcaption></figure>
+  </div>
+</section>
+
+<!-- ================= EPILOGUE ================= -->
+<section class="epilogue wrap">
+  <div class="ornament reveal">✦ &nbsp; ✦ &nbsp; ✦</div>
+  <h1 class="ch-title reveal">…and <em>home</em></h1>
+  <p class="reveal">From Riquewihr it is barely two hours back to Dällikon — a short, easy drive to end a slow, beautiful loop through France.</p>
+  <div class="signoff reveal">
+    Drawn for <b>Janine &amp; Alex</b> · 15–28 August 2026
+    <div class="imgnote">Photographs of the regions and sights via Wikimedia Commons. Hotel photographs on each hotel's own site, linked above. An internet connection is needed to view the images.</div>
+  </div>
+</section>
+
+<script>
+  var bar=document.getElementById('bar');
+  function prog(){
+    var h=document.documentElement;
+    bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+  }
+  addEventListener('scroll',prog,{passive:true});prog();
+
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+</body>
+</html>
