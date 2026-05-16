@@ -105,8 +105,13 @@
     border-left:2px solid var(--gilt);padding-left:.8rem;
   }
   .day-dine b{font-style:normal;font-weight:500;color:var(--ink);}
-  .day-dine a{color:var(--wine);text-decoration:none;border-bottom:1px solid rgba(124,39,51,.45);}
-  .day-dine a:hover{border-color:var(--wine);background:rgba(124,39,51,.06);}
+  .day-dine a{
+    color:var(--wine);font-weight:500;font-style:normal;
+    text-decoration:underline;text-decoration-color:var(--wine);
+    text-underline-offset:3px;text-decoration-thickness:1.5px;
+  }
+  .day-dine a::after{content:" \2197";font-size:.78em;text-decoration:none;display:inline-block;}
+  .day-dine a:hover{background:rgba(124,39,51,.09);}
   .day.travel .day-no{border-color:var(--gilt);color:var(--gilt);}
   .day.finale .day-no{background:var(--wine);border-color:var(--wine);color:#f6efdf;}
 
