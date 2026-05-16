@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>France · The Journey, Day by Day — August 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+  :root{
+    --paper:#f1e9d9;--paper-2:#e9dec6;--ink:#2b2520;--ink-soft:#5d544a;
+    --wine:#7c2733;--gilt:#a9842f;--line:#cdbf9f;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:'Spectral',Georgia,serif;font-size:18px;line-height:1.7;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;
+    opacity:.5;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/></svg>");
+  }
+  img{display:block;width:100%;height:100%;object-fit:cover;}
+  #bar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--wine);z-index:9500;}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 6vw;}
+
+  /* hero */
+  .hero{
+    position:relative;height:78vh;min-height:500px;
+    display:flex;flex-direction:column;justify-content:flex-end;
+    padding:0 6vw 7vh;color:#f6efdf;overflow:hidden;
+  }
+  .hero-img{position:absolute;inset:0;z-index:-2;}
+  .hero-img img{filter:saturate(.92) brightness(.82);}
+  .hero::after{content:"";position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(180deg,rgba(20,14,10,.32) 0%,rgba(20,14,10,.08) 42%,rgba(20,14,10,.66) 100%);}
+  .hero .kicker{font-size:.8rem;letter-spacing:.4em;text-transform:uppercase;font-weight:500;
+    margin-bottom:1.2rem;opacity:0;animation:rise 1s .15s ease forwards;}
+  .hero h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(2.8rem,8vw,6.4rem);
+    line-height:.98;letter-spacing:-.02em;opacity:0;animation:rise 1.1s .35s ease forwards;}
+  .hero h1 em{font-style:italic;color:#e7c98c;}
+  .hero .sub{margin-top:1.4rem;max-width:44ch;font-size:1.1rem;font-weight:300;
+    opacity:0;animation:rise 1.1s .55s ease forwards;}
+  @keyframes rise{from{opacity:0;transform:translateY(34px);}to{opacity:1;transform:none;}}
+
+  /* intro */
+  .intro{padding:11vh 0 2vh;text-align:center;}
+  .ornament{color:var(--wine);font-size:1.2rem;letter-spacing:.6em;margin-bottom:2.2rem;}
+  .intro p{max-width:56ch;margin:0 auto;color:var(--ink-soft);font-size:1.1rem;}
+
+  /* region divider */
+  .region{
+    text-align:center;margin:7vh 0 1vh;
+    font-family:'Fraunces',serif;font-style:italic;font-weight:400;
+    font-size:clamp(1.5rem,3.4vw,2.1rem);color:var(--wine);
+  }
+  .region span{
+    display:block;font-family:'Spectral';font-style:normal;font-size:.74rem;
+    letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:.5rem;
+  }
+
+  /* timeline */
+  .timeline{position:relative;padding:3vh 0 2vh;}
+  .timeline::before{
+    content:"";position:absolute;top:0;bottom:0;left:33px;width:2px;background:var(--line);
+  }
+  .day{
+    position:relative;display:grid;grid-template-columns:68px 1fr;gap:2rem;
+    padding-bottom:6.5vh;
+  }
+  .day-no{
+    width:68px;height:68px;border-radius:50%;
+    background:var(--paper);border:2px solid var(--wine);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;color:var(--wine);line-height:1;z-index:2;
+  }
+  .day-no b{font-size:1.5rem;font-weight:500;}
+  .day-no small{font-size:.54rem;letter-spacing:.14em;text-transform:uppercase;margin-top:.2rem;}
+  .day-c{padding-top:.2rem;}
+  .day-when{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);}
+  .day-when b{color:var(--wine);font-weight:500;}
+  .day-h{
+    font-family:'Fraunces',serif;font-weight:300;
+    font-size:clamp(1.6rem,3.6vw,2.5rem);line-height:1.1;letter-spacing:-.012em;
+    margin:.35rem 0 1.1rem;
+  }
+  .day-h em{font-style:italic;color:var(--wine);}
+  .day-photo{overflow:hidden;border:1px solid var(--line);margin-bottom:1.2rem;}
+  .day-photo img{aspect-ratio:16/9;transition:transform 8s ease;}
+  .day-photo:hover img{transform:scale(1.05);}
+  .day-d{color:var(--ink-soft);}
+  .day-chips{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem;}
+  .chip{
+    font-size:.72rem;letter-spacing:.03em;border:1px solid var(--line);
+    padding:.26rem .65rem;color:var(--ink-soft);background:rgba(255,255,255,.32);border-radius:2px;
+  }
+  .chip.key{color:var(--wine);border-color:var(--wine);}
+  .day-dine{
+    margin-top:1rem;font-size:.92rem;font-style:italic;color:var(--ink-soft);
+    border-left:2px solid var(--gilt);padding-left:.8rem;
+  }
+  .day-dine b{font-style:normal;font-weight:500;color:var(--ink);}
+  .day.travel .day-no{border-color:var(--gilt);color:var(--gilt);}
+  .day.finale .day-no{background:var(--wine);border-color:var(--wine);color:#f6efdf;}
+
+  /* footer */
+  .foot{padding:9vh 0 9vh;text-align:center;}
+  .foot .ch-t{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.8rem,4vw,2.8rem);
+    line-height:1.2;margin-bottom:1.2rem;}
+  .foot .ch-t em{font-style:italic;color:var(--wine);}
+  .foot p{max-width:52ch;margin:0 auto;color:var(--ink-soft);}
+  .nav{margin-top:2.4rem;display:flex;gap:1.8rem;justify-content:center;flex-wrap:wrap;}
+  .nav a{
+    color:var(--wine);text-decoration:none;font-size:.78rem;letter-spacing:.16em;
+    text-transform:uppercase;border-bottom:1px solid var(--wine);padding-bottom:3px;
+  }
+  .nav a:hover{color:var(--ink);border-color:var(--ink);}
+  .signoff{margin-top:3.4rem;padding-top:2.4rem;border-top:1px solid var(--line);
+    font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);}
+  .signoff b{color:var(--wine);font-weight:500;}
+
+  /* route map */
+  .mapsec{padding:5vh 0 1vh;}
+  .map-frame{border:1px solid var(--line);overflow:hidden;margin-top:1.6vh;
+    box-shadow:0 16px 38px -24px rgba(43,37,32,.55);}
+  #map{height:540px;width:100%;background:var(--paper-2);}
+  .map-cap{text-align:center;margin:1.5rem auto 0;color:var(--ink-soft);
+    font-size:1rem;max-width:58ch;font-style:italic;}
+  .pin{
+    background:var(--wine);color:#f6efdf;border-radius:50%;
+    width:30px;height:30px;display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-weight:500;font-size:15px;
+    border:2px solid #f1e9d9;box-shadow:0 2px 6px rgba(0,0,0,.4);
+  }
+  .pin.home{background:var(--gilt);}
+  .leaflet-container{font-family:'Spectral',Georgia,serif;background:var(--paper-2)!important;}
+  @media(max-width:780px){ #map{height:430px;} }
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:none;}
+
+  @media(max-width:780px){
+    body{font-size:17px;}
+    .timeline::before{left:25px;}
+    .day{grid-template-columns:52px 1fr;gap:1.1rem;}
+    .day-no{width:52px;height:52px;}
+    .day-no b{font-size:1.2rem;}
+    .day-no small{font-size:.48rem;}
+  }
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<header class="hero">
+  <div class="hero-img">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rocamadour%2C_Lot%2C_Midi-Pyr%C3%A9n%C3%A9es%2C_france.jpg?width=2400" alt="France">
+  </div>
+  <p class="kicker">France · 15–28 August 2026</p>
+  <h1>The journey,<br><em>day by day</em></h1>
+  <p class="sub">Fourteen days, one castle or wonder at a time — everything we'll see and do, from the first drive to the road home.</p>
+</header>
+
+<section class="intro wrap">
+  <div class="ornament reveal">✦ &nbsp; ✦ &nbsp; ✦</div>
+  <p class="reveal">A relaxed pace — one main thing each day, never a checklist, with long afternoons left free. Here is the whole journey laid out in order, with the sights, the drives, and the table booked for each evening.</p>
+</section>
+
+<section class="mapsec wrap">
+  <div class="region reveal"><span>The shape of it</span>The route across France</div>
+  <div class="map-frame reveal"><div id="map"></div></div>
+  <p class="map-cap reveal">A clockwise loop of about 1,700 km — from home near Zürich, down through Burgundy to the south-west, up the Loire, and home through Alsace. Tap a marker for the stop.</p>
+</section>
+
+<div class="wrap">
+
+  <div class="region reveal"><span>Part One</span>Burgundy</div>
+  <div class="timeline">
+
+    <div class="day travel reveal">
+      <div class="day-no"><b>1</b><small>Sat 15</small></div>
+      <div class="day-c">
+        <div class="day-when"><b>Saturday 15 August</b> · Dällikon → Beaune</div>
+        <h2 class="day-h">Setting off</h2>
+        <div class="day-photo"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Beaune_-_H%C3%B4tel-Dieu_-_Cour_-_02.jpg?width=1400" alt="Beaune"></div>
+        <p class="day-d">An early start to slip past the holiday traffic, and a four-hour drive into Burgundy. We arrive in the walled wine town of Beaune by mid-afternoon, leave the car, and let the first day be nothing but a slow wander of the old town and its ramparts.</p>
+        <div class="day-chips"><span class="chip">Drive ~4 h</span><span class="chip key">Depart early — 15 Aug holiday</span></div>
+        <div class="day-dine"><b>Dinner</b> — L'Écusson, with its vegetarian menu</div>
+      </div>
+    </div>
+
+    <div class="day reveal">
+      <div class="day-no"><b>2</b><small>Sun 16</small></div>
+      <div class="day-c">
+        <div class="day-when"><b>Sunday 16 August</b> · Beaune</div>
+        <h2 class="day-h">The Hospices &amp; <em>a first Burgundy</em></h2>
+        <div class="day-photo"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Beaune_-_H%C3%B4tel-Dieu_-_Cour_-_05.jpg?width=1400" alt="Hospices de Beaune"></div>
+        <p class="day-d">The morning belongs to the Hôtel-Dieu — Beaune's medieval charity hospital, its glazed-tile roof, and the Van der Weyden masterpiece inside. In the afternoon, a guided tasting in one of the town's underground cellars: a proper introduction to Burgundy.</p>
+        <div class="day-chips"><span class="chip">Hospices de Beaune · ~€12 each</span><span class="chip">Cellar wine tasting</span></div>
+        <div class="day-dine"><b>Dinner</b> — Le Bénaton</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="region reveal"><span>Part Two</span>Saint-Émilion &amp; the Dordogne</div>
+  <div class="timeline">
+
+    <div class="day travel reveal">
+      <div class="day-no"><b>3</b><small>Mon 17</small></div>
+      <div class="day-c">
+        <div class="day-when"><b>Monday 17 August</b> · Beaune → Saint-Émilion</div>
+        <h2 class="day-h">South to the vines</h2>
+        <div class="day-photo"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/1_Saint-%C3%89milion_aerial_pano_2016.jpg?width=1400" alt="Saint-Émilion"></div>
+        <p class="day-d">The long transfer west, broken by a good lunch on the road. We reach Saint-Émilion in the late afternoon and check in to our wine-estate stay, then wander the honey-stone medieval village as the light turns golden.</p>
+        <div class="day-chips"><span class="chip">Drive ~5 h 30</span><span class="chip">A night on a wine estate</span></div>
+        <div class="day-dine"><b>Dinner</b> — a casual table in the village</div>
+      </div>
+    </div>
+
+    <div class="day travel reveal">
+      <div class="day-no"><b>4</b><small>Tue 18</small></div>
+      <div class="day-c">
+        <div class="day-when"><b>Tuesday 18 August</b> · Saint-Émilion → Sarlat</div>
+        <h2 class="day-h">Cellars &amp; a church <em>cut from rock</em></h2>
+        <div class="day-photo"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Portail_%C3%A9glise_monolithe.jpg?width=1300" alt="Monolithic church of Saint-Émilion"></div>
+        <p class="day-d">A morning cellar tour and tasting on the estate, then the village's extraordinary monolithic church — an entire church carved from the limestone beneath the streets. A short, easy drive brings us to Sarlat, our home for five nights.</p>
+        <div class="day-chips"><span class="chip">Estate tour &amp; tasting</span><span class="chip">Monolithic church</span><span class="chip">Drive ~1 h 45</span></div>
+        <div class="day-dine"><b>Dinner</b> — Gueule &amp; Gosier, Sarlat</div>
+      </div>
+    </div>
+
+    <div class="day reveal">
+      <div class="day-no"><b>5</b><small>Wed 19</small></div>
+      <div class="day-c">
+        <div class="day-when"><b>Wednesday 19 August</b> · Sarlat &amp; the river</div>
+        <h2 class="day-h">Market morning, river villages</h2>
+        <div class="day-photo"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/La_Roque-Gageac_-_01.jpg?width=1400" alt="La Roque-Gageac"></div>
+        <p class="day-d">Sarlat's Wednesday market fills the medieval streets in the morning. The afternoon follows the Dordogne river to La Roque-Gageac, clinging to its cliff, and the clifftop bastide of Domme — with the option of a gentle gabarre boat trip on the water.</p>
+        <div class="day-chips"><span class="chip">Sarlat market (Wed)</span><span class="chip">La Roque-Gageac · Domme</span><span class="chip">Gabarre boat ~€8–10</span></div>
+        <div class="day-dine"><b>Dinner</b> — Le Présidial, in its garden</div>
+      </div>
+    </div>
+
+    <div class="day reveal">
+      <div class="day-no"><b>6</b><small>Thu 20</small></div>
+      <div class="day-c">
+        <div class="day-when"><b>Thursday 20 August</b> · The Dordogne castles</div>
+        <h2 class="day-h">Two fortresses &amp; <em>candlelight</em></h2>
+        <div class="day-photo"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Castle_of_Beynac_27.jpg?width=1400" alt="Château de Beynac"></div>
+        <p class="day-d">The day of castles: Beynac and Castelnaud, two great fortresses staring at each other across the valley. Then, as dusk falls, the gardens of Marqueyssac lit by thousands of candles — a Thursday-evening summer ritual, and a magical close to the day.</p>
+        <div class="day-chips"><span class="chip">Beynac · €12.50</span><span class="chip">Castelnaud · €13.60</span><span class="chip key">Candlelit Marqueyssac · €24 — book online</span></div>
+        <div class="day-dine"><b>Dinner</b> — Ô Moulin, Carsac (Michelin Bib Gourmand)</div>
+      </div>
+    </div>
+
+    <div class="day reveal">
+      <div class="day-no"><b>7</b><small>Fri 21</small></div>
+      <div class="day-c">
+        <div class="day-when"><b>Friday 21 August</b> · The Vézère valley</div>
+        <h2 class="day-h">Seventeen thousand years of art</h2>
+        <div class="day-photo"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lascaux_painting.jpg?width=1400" alt="Lascaux cave paintings"></div>
+        <p class="day-d">A morning at Lascaux IV — the breathtaking re-creation of the painted caves, where Paleolithic bulls charge across the rock. The rest of the day unwinds gently along the prehistoric Vézère valley.</p>
+        <div class="day-chips"><span class="chip">Lascaux IV · €23 each</span><span class="chip key">Pre-book timed tickets</span></div>
+        <div class="day-dine"><b>Dinner</b> — Le Bistro de l'Octroi</div>
+      </div>
+    </div>
+
+    <div class="day reveal">
+      <div class="day-no"><b>8</b><small>Sat 22</small></div>
+      <div class="day-c">
+        <div class="day-when"><b>Saturday 22 August</b> · Rocamadour</div>
+        <h2 class="day-h">The cliff sanctuary</h2>
+        <div class="day-photo"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Rocamadour%2C_Lot%2C_Midi-Pyr%C3%A9n%C3%A9es%2C_france.jpg?width=1400" alt="Rocamadour"></div>
+        <p class="day-d">A day trip to Rocamadour — a pilgrimage village stacked in tiers of chapels and ramparts up a sheer cliff face. We go early, before the heat and the crowds, then drift back to Sarlat for a quiet afternoon.</p>
+        <div class="day-chips"><span class="chip">Village free to enter</span><span class="chip key">Arrive before 10:00</span></div>
+        <div class="day-dine"><b>Dinner</b> — back in Sarlat</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="region reveal"><span>Part Three</span>The Loire Valley</div>
+  <div class="timeline">
+
+    <div class="day travel reveal">
+      <div class="day-no"><b>9</b><small>Sun 23</small></div>
+      <div class="day-c">
+        <div class="day-when"><b>Sunday 23 August</b> · Sarlat → Amboise</div>
+        <h2 class="day-h">North to the valley of kings</h2>
+        <div class="day-photo"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ch%C3%A2teau_et_tour_des_Minimes_%28Amboise%29.jpg?width=1400" alt="Château d'Amboise"></div>
+        <p class="day-d">A four-hour drive north into the Loire. We settle into Amboise and spend the evening in its old town, the royal château floodlit on the cliff above the river.</p>
+        <div class="day-chips"><span class="chip">Drive ~4 h</span></div>
+        <div class="day-dine"><b>Dinner</b> — Les Arpents</div>
+      </div>
+    </div>
+
+    <div class="day reveal">
+      <div class="day-no"><b>10</b><small>Mon 24</small></div>
+      <div class="day-c">
+        <div class="day-when"><b>Monday 24 August</b> · Chenonceau</div>
+        <h2 class="day-h">The château <em>on the water</em></h2>
+        <div class="day-photo"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Chateau_de_Chenonceau_2008E_%28adjusted2%29.jpg?width=1400" alt="Château de Chenonceau"></div>
+        <p class="day-d">An early arrival at Chenonceau, the most beautiful of all the Loire châteaux, arching gracefully across the river Cher before the tour groups appear. The afternoon brings a tasting of crisp Vouvray white among the vines.</p>
+        <div class="day-chips"><span class="chip">Chenonceau · €19–24 each</span><span class="chip">Vouvray wine tasting</span></div>
+        <div class="day-dine"><b>Dinner</b> — La Brèche</div>
+      </div>
+    </div>
+
+    <div class="day reveal">
+      <div class="day-no"><b>11</b><small>Tue 25</small></div>
+      <div class="day-c">
+        <div class="day-when"><b>Tuesday 25 August</b> · Amboise</div>
+        <h2 class="day-h">Leonardo's <em>last home</em></h2>
+        <div class="day-photo"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Clos_luce_04.jpg?width=1400" alt="Clos Lucé"></div>
+        <p class="day-d">A walkable day in town: the royal Château d'Amboise, where Leonardo da Vinci is buried, and Clos Lucé, the rose-brick manor where he spent his final years, its gardens scattered with models of his machines. <em>(Or we swap in grand Chambord and Blois, if we'd rather.)</em></p>
+        <div class="day-chips"><span class="chip">Château d'Amboise · €15</span><span class="chip">Clos Lucé · €19 (combo €28)</span></div>
+        <div class="day-dine"><b>Dinner</b> — Château de Pray (1 Michelin star)</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="region reveal"><span>Part Four</span>Alsace</div>
+  <div class="timeline">
+
+    <div class="day travel reveal">
+      <div class="day-no"><b>12</b><small>Wed 26</small></div>
+      <div class="day-c">
+        <div class="day-when"><b>Wednesday 26 August</b> · Amboise → Riquewihr</div>
+        <h2 class="day-h">East, to where it ends gently</h2>
+        <div class="day-photo"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/0_Riquewihr_%281%29.jpg?width=1400" alt="Riquewihr"></div>
+        <p class="day-d">The last long transfer, with a lunch stop in Burgundy along the way. By late afternoon we reach Alsace and check into the spa hotel — and the trip changes gear into pure rest.</p>
+        <div class="day-chips"><span class="chip">Drive ~6 h</span><span class="chip">Spa, on arrival</span></div>
+        <div class="day-dine"><b>Dinner</b> — Le Sarment d'Or, Riquewihr</div>
+      </div>
+    </div>
+
+    <div class="day reveal">
+      <div class="day-no"><b>13</b><small>Thu 27</small></div>
+      <div class="day-c">
+        <div class="day-when"><b>Thursday 27 August</b> · Riquewihr &amp; around</div>
+        <h2 class="day-h">Rest, villages &amp; <em>the table we love</em></h2>
+        <div class="day-photo"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Vue_du_ch%C3%A2teau_sur_la_plaine_d%27Alsace_%28au_fond%2C_la_For%C3%AAt-Noire%29.jpg?width=1400" alt="Château du Haut-Koenigsbourg"></div>
+        <p class="day-d">A day that asks for nothing: the spa, the fairy-tale villages of Riquewihr, Kaysersberg and Eguisheim, and — if we feel like it — the great hilltop fortress of Haut-Kœnigsbourg and a glass of Alsace wine. And then the evening we look forward to all year.</p>
+        <div class="day-chips"><span class="chip">Haut-Kœnigsbourg · €12 (free tour 15:00)</span><span class="chip">Alsace wine villages</span></div>
+        <div class="day-dine"><b>Dinner</b> — La Table du Gourmet ✦ the tradition</div>
+      </div>
+    </div>
+
+    <div class="day finale reveal">
+      <div class="day-no"><b>14</b><small>Fri 28</small></div>
+      <div class="day-c">
+        <div class="day-when"><b>Friday 28 August</b> · Riquewihr → Dällikon</div>
+        <h2 class="day-h">The road home</h2>
+        <p class="day-d">An unhurried last breakfast, perhaps a final wander or a bottle to carry home — and then a short two-hour drive back to Dällikon, closing a slow and beautiful loop through France.</p>
+        <div class="day-chips"><span class="chip">Drive ~2 h</span></div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<section class="foot wrap">
+  <div class="ornament reveal">✦ &nbsp; ✦ &nbsp; ✦</div>
+  <h2 class="ch-t reveal">Fourteen days, <em>one wonder at a time</em></h2>
+  <p class="reveal">Castle entry prices are per person; the marked items are worth booking ahead. Everything else is built to stay slow and unhurried.</p>
+  <div class="nav reveal">
+    <a href="index.html">The trip lookbook</a>
+    <a href="accommodations.html">Where we'll stay</a>
+  </div>
+  <div class="signoff reveal">For <b>Janine &amp; Alex</b> · France · 15–28 August 2026</div>
+</section>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  var bar=document.getElementById('bar');
+  function prog(){var h=document.documentElement;bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';}
+  addEventListener('scroll',prog,{passive:true});prog();
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.1,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+  /* route map */
+  (function(){
+    if(typeof L==='undefined')return;
+    var stops=[
+      {n:'⌂',name:'Dällikon — home',ll:[47.456,8.398],home:true},
+      {n:'1',name:'Beaune · Burgundy',ll:[47.024,4.840]},
+      {n:'2',name:'Saint-Émilion',ll:[44.894,-0.156]},
+      {n:'3',name:'Sarlat · Dordogne',ll:[44.890,1.217]},
+      {n:'4',name:'Amboise · Loire',ll:[47.413,0.982]},
+      {n:'5',name:'Riquewihr · Alsace',ll:[48.167,7.299]}
+    ];
+    var map=L.map('map',{scrollWheelZoom:false}).setView([46.3,3.4],6);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+      {subdomains:'abcd',maxZoom:18,attribution:'&copy; OpenStreetMap, &copy; CARTO'}).addTo(map);
+    var path=stops.map(function(s){return s.ll;});
+    path.push(stops[0].ll);
+    L.polyline(path,{color:'#7c2733',weight:3,opacity:.85,dashArray:'1 9',lineCap:'round'}).addTo(map);
+    var pts=[];
+    stops.forEach(function(s){
+      var ic=L.divIcon({html:'<div class="pin'+(s.home?' home':'')+'">'+s.n+'</div>',
+        className:'',iconSize:[30,30],iconAnchor:[15,15]});
+      L.marker(s.ll,{icon:ic}).addTo(map).bindPopup('<b>'+s.name+'</b>');
+      pts.push(s.ll);
+    });
+    map.fitBounds(pts,{padding:[45,45]});
+    setTimeout(function(){map.invalidateSize();},400);
+  })();
+</script>
+</body>
+</html>
