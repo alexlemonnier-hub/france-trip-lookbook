@@ -28,7 +28,6 @@
   #bar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--wine);z-index:9500;}
   .wrap{max-width:1140px;margin:0 auto;padding:0 6vw;}
 
-  /* hero */
   .hero{
     position:relative;height:74vh;min-height:480px;
     display:flex;flex-direction:column;justify-content:flex-end;
@@ -47,17 +46,15 @@
     opacity:0;animation:rise 1.1s .55s ease forwards;}
   @keyframes rise{from{opacity:0;transform:translateY(34px);}to{opacity:1;transform:none;}}
 
-  /* intro */
   .intro{padding:11vh 0 3vh;text-align:center;}
   .ornament{color:var(--wine);font-size:1.2rem;letter-spacing:.6em;margin-bottom:2.4rem;}
-  .intro p{max-width:56ch;margin:0 auto;color:var(--ink-soft);font-size:1.12rem;}
+  .intro p{max-width:58ch;margin:0 auto;color:var(--ink-soft);font-size:1.12rem;}
   .intro .legend{
     margin-top:2.4rem;display:flex;gap:1.8rem;justify-content:center;flex-wrap:wrap;
     font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);
   }
   .intro .legend b{color:var(--wine);font-weight:500;}
 
-  /* base section */
   .base{padding:8vh 0 2vh;}
   .base-head{margin-bottom:2.2rem;}
   .base-eyebrow{display:flex;align-items:baseline;gap:.9rem;margin-bottom:.7rem;
@@ -73,7 +70,6 @@
   .base-banner img{aspect-ratio:24/9;transition:transform 9s ease;}
   .base-banner:hover img{transform:scale(1.04);}
 
-  /* hotel cards */
   .hotel{
     background:var(--paper-2);border:1px solid var(--line);padding:1.9rem 2rem;
     display:flex;flex-direction:column;
@@ -115,12 +111,11 @@
   .alt-label::after{content:"";flex:1;height:1px;background:var(--line);}
   .alt-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
 
-  /* footer */
   .foot{padding:11vh 0 9vh;text-align:center;}
   .foot .ch-t{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.8rem,4vw,2.8rem);
     line-height:1.2;margin-bottom:1.2rem;}
   .foot .ch-t em{font-style:italic;color:var(--wine);}
-  .foot p{max-width:50ch;margin:0 auto;color:var(--ink-soft);}
+  .foot p{max-width:52ch;margin:0 auto;color:var(--ink-soft);}
   .foot a{color:var(--wine);}
   .signoff{margin-top:3.4rem;padding-top:2.4rem;border-top:1px solid var(--line);
     font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);}
@@ -147,12 +142,12 @@
   </div>
   <p class="kicker">France · 15–28 August 2026</p>
   <h1>Where we'll <em>stay</em></h1>
-  <p class="sub">Five homes along the road — the recommended choice for each stop, and every alternative, so we can pick them together.</p>
+  <p class="sub">Five modern, comfortable hotels along the road — clean, well-located, and every one under €200 a night.</p>
 </header>
 
 <section class="intro wrap">
   <div class="ornament reveal">✦ &nbsp; ✦ &nbsp; ✦</div>
-  <p class="reveal">For every stop there's <b>one recommended hotel</b> and a handful of alternatives. Prices are estimates for our exact dates, for the two of us; booking direct is always as cheap as the booking sites. Tap any hotel to open its own website and see its photos.</p>
+  <p class="reveal">No fuss, no faded grandeur — just <b>fresh, spotless, comfortable rooms</b> in good locations. For each stop there's one recommended hotel and a couple of alternatives, and <b>every option is under €200 a night</b>. Prices are estimates for our exact dates; tap any hotel for its own photos.</p>
   <div class="legend reveal">
     <span><b>✦ Our pick</b> — the recommended choice</span>
     <span>Everything else — worth considering</span>
@@ -170,31 +165,31 @@
 
   <article class="hotel pick reveal">
     <span class="badge">✦ Our pick</span>
-    <div class="h-name">Hôtel Les Remparts</div>
-    <div class="h-type">4★ · a 17th-century mansion by the old ramparts</div>
-    <div class="h-price">≈ €560–760 <small>/ 2 nights</small></div>
-    <div class="chips"><span class="chip">4★</span><span class="chip">Air-conditioned</span><span class="chip">Parking €15</span><span class="chip">By the ramparts</span></div>
-    <p class="h-desc">Rooms named for vineyards, a quiet inner courtyard, the old town a few steps away. Characterful and central — the right place to shake off the drive. (One quirk: no lift.)</p>
-    <a class="h-link" href="https://www.hotel-remparts-beaune.com" target="_blank" rel="noopener">Visit the hotel ↗</a>
+    <div class="h-name">ibis Styles Beaune Centre</div>
+    <div class="h-type">Modern 3★ · in the heart of Beaune</div>
+    <div class="h-price">≈ €260–360 <small>/ 2 nights</small></div>
+    <div class="chips"><span class="chip">Modern rooms</span><span class="chip">Steps from the Hospices</span><span class="chip">Breakfast included</span><span class="chip">Air-conditioned</span></div>
+    <p class="h-desc">A fresh, clean hotel from Accor's design brand — right in the centre, a short walk from the Hospices, breakfast included, and comfortably under budget. Underground parking on site.</p>
+    <a class="h-link" href="https://all.accor.com/hotel/7572/index.en.shtml" target="_blank" rel="noopener">Visit the hotel ↗</a>
   </article>
 
   <p class="alt-label reveal">The alternatives</p>
   <div class="alt-grid">
     <article class="hotel reveal">
-      <div class="h-name">Hôtel des Tonneliers</div>
-      <div class="h-type">3★ boutique · 17th-century courtyard</div>
-      <div class="h-price">≈ €340–460 <small>/ 2 nights</small></div>
-      <div class="chips"><span class="chip">3★</span><span class="chip">Air-conditioned</span><span class="chip">Breakfast included direct</span><span class="chip">Best value</span></div>
-      <p class="h-desc">The best-value choice — a charming small boutique, with breakfast thrown in when you book direct.</p>
-      <a class="h-link" href="https://www.hoteldestonneliersbeaune.com" target="_blank" rel="noopener">Visit the hotel ↗</a>
+      <div class="h-name">Mercure Beaune Centre</div>
+      <div class="h-type">4★ · recently renovated</div>
+      <div class="h-price">≈ €320–440 <small>/ 2 nights</small></div>
+      <div class="chips"><span class="chip">4★</span><span class="chip">Pool</span><span class="chip">Free parking</span><span class="chip warn">May top €200 on 15 Aug</span></div>
+      <p class="h-desc">A notch more comfort — modern renovated rooms, a pool, free parking — but the holiday-weekend rate needs checking against the cap.</p>
+      <a class="h-link" href="https://all.accor.com/hotel/1217/index.en.shtml" target="_blank" rel="noopener">Visit the hotel ↗</a>
     </article>
     <article class="hotel reveal">
-      <div class="h-name">Hôtel Le Cep &amp; Spa</div>
-      <div class="h-type">5★ · the medieval heart of Beaune</div>
-      <div class="h-price">≈ €700–1,000 <small>/ 2 nights</small></div>
-      <div class="chips"><span class="chip">5★</span><span class="chip">Spa</span><span class="chip">Splurge</span></div>
-      <p class="h-desc">The luxury option — a five-star stay with a spa, if we feel like opening the trip in grand style.</p>
-      <a class="h-link" href="https://www.hotel-cep-beaune.com" target="_blank" rel="noopener">Visit the hotel ↗</a>
+      <div class="h-name">Campanile Beaune</div>
+      <div class="h-type">Modern 3★ · 3 km from the centre</div>
+      <div class="h-price">≈ €220–320 <small>/ 2 nights</small></div>
+      <div class="chips"><span class="chip">Modern décor</span><span class="chip">Pool</span><span class="chip">Free parking</span><span class="chip">Budget</span></div>
+      <p class="h-desc">The budget choice — modern, functional, with a pool and free parking, a short drive from town.</p>
+      <a class="h-link" href="https://beaune.campanile.com/en-us/" target="_blank" rel="noopener">Visit the hotel ↗</a>
     </article>
   </div>
 </section>
@@ -204,53 +199,37 @@
   <div class="base-head reveal">
     <p class="base-eyebrow"><span class="base-rn">II</span><span>Bordeaux wine country</span></p>
     <h2 class="base-title">Saint-Émilion</h2>
-    <div class="base-meta"><span>17–18 August</span><i></i><span>One night · on a wine estate</span></div>
+    <div class="base-meta"><span>17–18 August</span><i></i><span>One night</span></div>
   </div>
   <div class="base-banner reveal"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/1_Saint-%C3%89milion_aerial_pano_2016.jpg?width=1600" alt="Saint-Émilion"></div>
 
   <article class="hotel pick reveal">
     <span class="badge">✦ Our pick</span>
-    <div class="h-name">Le Relais de Franc Mayne</div>
-    <div class="h-type">Guest house of a Saint-Émilion Grand Cru Classé estate</div>
-    <div class="h-price">≈ €300–410 <small>/ the night</small></div>
-    <div class="chips"><span class="chip">Wine estate</span><span class="chip">Natural pool</span><span class="chip">Air-conditioned</span><span class="chip">Cellar tour &amp; tasting included</span><span class="chip">Breakfast included</span></div>
-    <p class="h-desc">A night in the vines: an 18th-century house on a classified wine estate, a one-kilometre walk from the medieval village, with our own tour of the underground cellars and a tasting bundled in.</p>
-    <a class="h-link" href="https://www.chateaufrancmayne.com" target="_blank" rel="noopener">Visit the estate ↗</a>
+    <div class="h-name">ibis Bordeaux Saint-Émilion</div>
+    <div class="h-type">3★ · fully renovated in 2026 · 5 min from the village</div>
+    <div class="h-price">≈ €100–150 <small>/ the night</small></div>
+    <div class="chips"><span class="chip">Brand-new rooms (2026)</span><span class="chip">Free parking</span><span class="chip">Air-conditioned</span><span class="chip">5 min drive to the village</span></div>
+    <p class="h-desc">Freshly renovated for 2026 — the most modern, cleanest choice in the area, with free parking and a restaurant on site. A five-minute drive into Saint-Émilion for the evening wander.</p>
+    <a class="h-link" href="https://all.accor.com/hotel/8510/index.en.shtml" target="_blank" rel="noopener">Visit the hotel ↗</a>
   </article>
 
   <p class="alt-label reveal">The alternatives</p>
   <div class="alt-grid">
     <article class="hotel reveal">
-      <div class="h-name">Les Clefs de Troplong Mondot</div>
-      <div class="h-type">Suites on a Premier Grand Cru Classé estate</div>
-      <div class="h-price">≈ €330–590 <small>/ the night</small></div>
-      <div class="chips"><span class="chip">Wine estate</span><span class="chip">Premier Grand Cru</span><span class="chip">Michelin restaurant on site</span><span class="chip">Splurge</span></div>
-      <p class="h-desc">The grand option — four suites on one of Saint-Émilion's most prestigious estates, with a Michelin-starred table at the door.</p>
-      <a class="h-link" href="https://www.troplong-mondot.com" target="_blank" rel="noopener">Visit the estate ↗</a>
+      <div class="h-name">Mercure Libourne Saint-Émilion</div>
+      <div class="h-type">4★ · riverside in Libourne</div>
+      <div class="h-price">≈ €130–180 <small>/ the night</small></div>
+      <div class="chips"><span class="chip">4★</span><span class="chip">Riverside setting</span><span class="chip">Air-conditioned</span></div>
+      <p class="h-desc">A step up in comfort, on the Dordogne river in Libourne — about 15 minutes from Saint-Émilion.</p>
+      <a class="h-link" href="https://all.accor.com/hotel/6238/index.en.shtml" target="_blank" rel="noopener">Visit the hotel ↗</a>
     </article>
     <article class="hotel reveal">
       <div class="h-name">Le Logis de Valandraud</div>
-      <div class="h-type">Guesthouse on the legendary "garage wine" estate</div>
+      <div class="h-type">Guesthouse on a Premier Grand Cru Classé wine estate</div>
       <div class="h-price">≈ €150–200 <small>/ the night</small></div>
-      <div class="chips"><span class="chip">Wine estate</span><span class="chip">Pool</span><span class="chip">Air-conditioned</span><span class="chip">Best value</span></div>
-      <p class="h-desc">Best value — a guesthouse on a famous Premier Grand Cru Classé estate, with the winemaker as host. About 15 minutes from the village.</p>
+      <div class="chips"><span class="chip">Wine estate</span><span class="chip">Pool</span><span class="chip">Air-conditioned</span></div>
+      <p class="h-desc">If the idea of sleeping on a wine estate still appeals — this is the one that fits the budget, on a famous Saint-Émilion estate with the winemaker as host.</p>
       <a class="h-link" href="https://www.logisdevalandraud.com" target="_blank" rel="noopener">Visit the estate ↗</a>
-    </article>
-    <article class="hotel reveal">
-      <div class="h-name">Château de Ferrand</div>
-      <div class="h-type">Three designer rooms on a Grand Cru Classé estate</div>
-      <div class="h-price">from ≈ €350 <small>/ the night</small></div>
-      <div class="chips"><span class="chip">Wine estate</span><span class="chip">Designer rooms</span><span class="chip">Sommelier tasting</span></div>
-      <p class="h-desc">The most intimate — just three designer rooms, with a private tasting led by the château's sommelier. Around 10 minutes from the village.</p>
-      <a class="h-link" href="https://www.chateaudeferrand.com" target="_blank" rel="noopener">Visit the estate ↗</a>
-    </article>
-    <article class="hotel reveal">
-      <div class="h-name">Badon Boutique Hotel</div>
-      <div class="h-type">4★ wine boutique — in the village itself</div>
-      <div class="h-price">≈ €235–320 <small>/ the night</small></div>
-      <div class="chips"><span class="chip">4★</span><span class="chip">In the village</span><span class="chip">Air-conditioned</span><span class="chip">Walk everywhere</span></div>
-      <p class="h-desc">The in-village choice — if we'd rather be able to stroll out the door straight into Saint-Émilion's lanes.</p>
-      <a class="h-link" href="https://www.badonboutiquehotel.com" target="_blank" rel="noopener">Visit the hotel ↗</a>
     </article>
   </div>
 </section>
@@ -266,39 +245,31 @@
 
   <article class="hotel pick reveal">
     <span class="badge">✦ Our pick</span>
-    <div class="h-name">Hôtel La Hoirie</div>
-    <div class="h-type">3★ country house · a 13th-century farmstead in parkland</div>
-    <div class="h-price">≈ €600–700 <small>/ 5 nights</small></div>
-    <div class="chips"><span class="chip">Outdoor pool</span><span class="chip">Air-conditioned</span><span class="chip">Wooded park</span><span class="chip">Restaurant on site</span><span class="chip">3 km from town</span></div>
-    <p class="h-desc">A peaceful, characterful base for the longest stay of the trip — a pool for the hot afternoons, deep quiet in a green park, and the medieval town a five-minute drive away.</p>
-    <a class="h-link" href="https://www.lahoirie.com" target="_blank" rel="noopener">Visit the hotel ↗</a>
+    <div class="h-name">Le Mas de Castel</div>
+    <div class="h-type">Modern 3★ boutique · with a heated pool</div>
+    <div class="h-price">≈ €750–925 <small>/ 5 nights</small></div>
+    <div class="chips"><span class="chip">Modern rooms</span><span class="chip">4.8/5 cleanliness</span><span class="chip">Heated pool</span><span class="chip">Air-conditioned</span><span class="chip">Free parking</span></div>
+    <p class="h-desc">A modern, owner-run boutique hotel with spotless rooms and a heated pool for the hot afternoons — exactly right for the trip's longest stay. A quiet five-minute drive from the medieval town.</p>
+    <a class="h-link" href="https://hotel-lemasdecastel.com/en/" target="_blank" rel="noopener">Visit the hotel ↗</a>
   </article>
 
   <p class="alt-label reveal">The alternatives</p>
   <div class="alt-grid">
     <article class="hotel reveal">
-      <div class="h-name">Clos La Boëtie &amp; Spa</div>
-      <div class="h-type">4★ boutique with a spa</div>
-      <div class="h-price">≈ €900–1,250 <small>/ 5 nights</small></div>
-      <div class="chips"><span class="chip">4★</span><span class="chip">Spa</span><span class="chip">Indoor + outdoor pools</span><span class="chip">Air-conditioned</span></div>
-      <p class="h-desc">The luxury long-stay option — full spa, two pools, an elegant base just outside the centre.</p>
-      <a class="h-link" href="https://www.au-grand-hotel-de-sarlat.com" target="_blank" rel="noopener">Visit the hotel ↗</a>
+      <div class="h-name">ibis Sarlat</div>
+      <div class="h-type">3★ · renovated 2025 · the most central</div>
+      <div class="h-price">≈ €450–650 <small>/ 5 nights</small></div>
+      <div class="chips"><span class="chip">Renovated 2025</span><span class="chip">600 m to old town</span><span class="chip">Air-conditioned</span><span class="chip">Budget</span></div>
+      <p class="h-desc">The best-value choice — freshly renovated, reliably clean, walking distance to the old town. No pool.</p>
+      <a class="h-link" href="https://all.accor.com/hotel/6868/index.en.shtml" target="_blank" rel="noopener">Visit the hotel ↗</a>
     </article>
     <article class="hotel reveal">
-      <div class="h-name">Le Mas del Pechs</div>
-      <div class="h-type">3★ · quiet, on the hill above town</div>
-      <div class="h-price">≈ €585–750 <small>/ 5 nights</small></div>
-      <div class="chips"><span class="chip">Pool</span><span class="chip">Air-conditioned</span><span class="chip">12-min walk to town</span><span class="chip">Best value</span></div>
-      <p class="h-desc">Best value — a quiet, friendly hotel with a pool, within walking distance of the old town.</p>
-      <a class="h-link" href="https://www.sarlat-hotel.com" target="_blank" rel="noopener">Visit the hotel ↗</a>
-    </article>
-    <article class="hotel reveal">
-      <div class="h-name">Hôtel La Couleuvrine</div>
-      <div class="h-type">3★ · inside a medieval rampart tower</div>
-      <div class="h-price">≈ €600–725 <small>/ 5 nights</small></div>
-      <div class="chips"><span class="chip">In the old town</span><span class="chip">Medieval tower</span><span class="chip warn">No air-conditioning</span></div>
-      <p class="h-desc">The most atmospheric — set in a genuine medieval tower in the heart of Sarlat. The trade-off: no air-conditioning and no pool, in an August town that gets hot.</p>
-      <a class="h-link" href="https://www.la-couleuvrine.com" target="_blank" rel="noopener">Visit the hotel ↗</a>
+      <div class="h-name">Plaza Madeleine &amp; Spa</div>
+      <div class="h-type">4★ · in the heart of Sarlat, with a spa</div>
+      <div class="h-price">≈ €950–1,150 <small>/ 5 nights</small></div>
+      <div class="chips"><span class="chip">4★</span><span class="chip">Indoor pool + spa</span><span class="chip">In the old town</span><span class="chip warn">Verify it stays under €200</span></div>
+      <p class="h-desc">Contemporary rooms right in town with an indoor pool and spa — but the August rate sits at the very edge of the budget; worth it only if it confirms under the cap.</p>
+      <a class="h-link" href="https://www.plaza-madeleine.com/en/" target="_blank" rel="noopener">Visit the hotel ↗</a>
     </article>
   </div>
 </section>
@@ -314,39 +285,31 @@
 
   <article class="hotel pick reveal">
     <span class="badge">✦ Our pick</span>
-    <div class="h-name">Le Manoir Saint-Thomas</div>
-    <div class="h-type">4★ · a 12th-century manor in the old town</div>
-    <div class="h-price">≈ €540–660 <small>/ 3 nights</small></div>
-    <div class="chips"><span class="chip">4★</span><span class="chip">Heated pool</span><span class="chip">Air-conditioned</span><span class="chip">Free parking</span><span class="chip">Breakfast included</span></div>
-    <p class="h-desc">The most-loved hotel in Amboise — a beautiful old manor with gardens and a pool, a short walk from both châteaux, and breakfast included when booked direct.</p>
-    <a class="h-link" href="https://www.manoir-saint-thomas.com" target="_blank" rel="noopener">Visit the hotel ↗</a>
+    <div class="h-name">Novotel Amboise</div>
+    <div class="h-type">Modern 4★ · in landscaped parkland</div>
+    <div class="h-price">≈ €450–600 <small>/ 3 nights</small></div>
+    <div class="chips"><span class="chip">Modern rooms</span><span class="chip">Outdoor pool</span><span class="chip">Free parking</span><span class="chip">Air-conditioned</span></div>
+    <p class="h-desc">A spacious, modern chain hotel set in quiet parkland with an outdoor pool and free parking — comfortable and reliable, about 2 km from the town and château.</p>
+    <a class="h-link" href="https://all.accor.com/hotel/0395/index.en.shtml" target="_blank" rel="noopener">Visit the hotel ↗</a>
   </article>
 
   <p class="alt-label reveal">The alternatives</p>
   <div class="alt-grid">
     <article class="hotel reveal">
-      <div class="h-name">Le Clos d'Amboise</div>
-      <div class="h-type">4★ mansion in the old town</div>
-      <div class="h-price">≈ €480–630 <small>/ 3 nights</small></div>
-      <div class="chips"><span class="chip">4★</span><span class="chip">Heated pool</span><span class="chip">Air-conditioned</span><span class="chip">Central</span></div>
-      <p class="h-desc">A handsome 17th-century mansion with a garden and pool, right in the centre — very close to our pick in feel and price.</p>
-      <a class="h-link" href="https://www.leclosdamboise.com" target="_blank" rel="noopener">Visit the hotel ↗</a>
-    </article>
-    <article class="hotel reveal">
-      <div class="h-name">Château de Perreux</div>
-      <div class="h-type">A genuine 19th-century château in its grounds</div>
-      <div class="h-price">≈ €570–795 <small>/ 3 nights</small></div>
-      <div class="chips"><span class="chip">Château</span><span class="chip">Pool</span><span class="chip">Parkland</span><span class="chip">3.5 km from town</span></div>
-      <p class="h-desc">Sleep in an actual château — set in parkland just outside Amboise, for total quiet. A car is needed for town.</p>
-      <a class="h-link" href="https://www.chateaudeperreux.fr" target="_blank" rel="noopener">Visit the hotel ↗</a>
-    </article>
-    <article class="hotel reveal">
-      <div class="h-name">Logis Hôtel La Brèche</div>
+      <div class="h-name">La Brèche</div>
       <div class="h-type">3★ · with a well-regarded restaurant</div>
-      <div class="h-price">≈ €420–540 <small>/ 3 nights</small></div>
-      <div class="chips"><span class="chip">3★</span><span class="chip">Air-conditioned</span><span class="chip">Indoor parking</span><span class="chip">Best value</span></div>
-      <p class="h-desc">Best value — a comfortable 3-star, a 10-minute walk from the centre, with a good restaurant of its own.</p>
+      <div class="h-price">≈ €390–540 <small>/ 3 nights</small></div>
+      <div class="chips"><span class="chip">Top cleanliness (9.0/10)</span><span class="chip">Air-conditioned</span><span class="chip">Free parking</span><span class="chip warn">Décor a little dated</span></div>
+      <p class="h-desc">Spotless and friendly with a good restaurant of its own — the rooms are comfortable but the décor leans traditional. No pool.</p>
       <a class="h-link" href="https://en.labreche-amboise.com" target="_blank" rel="noopener">Visit the hotel ↗</a>
+    </article>
+    <article class="hotel reveal">
+      <div class="h-name">ibis Amboise</div>
+      <div class="h-type">3★ · in a wooded park</div>
+      <div class="h-price">≈ €330–450 <small>/ 3 nights</small></div>
+      <div class="chips"><span class="chip">Air-conditioned</span><span class="chip">Free parking</span><span class="chip">Budget</span></div>
+      <p class="h-desc">The budget option — a simple, modern ibis in a quiet wooded setting with free parking.</p>
+      <a class="h-link" href="https://all.accor.com/hotel/0908/index.en.shtml" target="_blank" rel="noopener">Visit the hotel ↗</a>
     </article>
   </div>
 </section>
@@ -356,37 +319,37 @@
   <div class="base-head reveal">
     <p class="base-eyebrow"><span class="base-rn">V</span><span>Alsace</span></p>
     <h2 class="base-title">Riquewihr &amp; around</h2>
-    <div class="base-meta"><span>26–28 August</span><i></i><span>Two nights · the spa finish</span></div>
+    <div class="base-meta"><span>26–28 August</span><i></i><span>Two nights · the relaxing finish</span></div>
   </div>
   <div class="base-banner reveal"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/0_Riquewihr_%281%29.jpg?width=1600" alt="Riquewihr"></div>
 
   <article class="hotel pick reveal">
     <span class="badge">✦ Our pick</span>
-    <div class="h-name">Le Chambard — Kaysersberg</div>
-    <div class="h-type">5★ Relais &amp; Châteaux, in a beautiful wine village</div>
-    <div class="h-price">≈ €760–860 <small>/ 2 nights (Superior Deluxe)</small></div>
-    <div class="chips"><span class="chip">5★</span><span class="chip">Relais &amp; Châteaux</span><span class="chip">200 m² spa</span><span class="chip">Michelin dining</span><span class="chip">15 min from Riquewihr</span></div>
-    <p class="h-desc">The relaxing finale — a true five-star spa hotel in the lovely village of Kaysersberg, a clear step up from where we've stayed before. Worth booking a Superior Deluxe or a Junior Suite.</p>
-    <a class="h-link" href="https://www.lechambard.fr" target="_blank" rel="noopener">Visit the hotel ↗</a>
+    <div class="h-name">Best Western Plus Le Schoenenbourg</div>
+    <div class="h-type">4★ · in Riquewihr itself · pool &amp; spa</div>
+    <div class="h-price">≈ €260–350 <small>/ 2 nights</small></div>
+    <div class="chips"><span class="chip">In Riquewihr — walk to the village</span><span class="chip">Renovated rooms</span><span class="chip">Outdoor pool + spa</span><span class="chip">Free parking</span></div>
+    <p class="h-desc">A modern, comfortable finish that stays in budget — on the edge of Riquewihr, a two-minute walk into the village, with renovated rooms, an outdoor pool and a small spa. Book a "Confort" or renovated "Prestige" room.</p>
+    <a class="h-link" href="https://hotel-schoenenbourg.fr/en/" target="_blank" rel="noopener">Visit the hotel ↗</a>
   </article>
 
   <p class="alt-label reveal">The alternatives</p>
   <div class="alt-grid">
     <article class="hotel reveal">
-      <div class="h-name">L'Esquisse Hôtel &amp; Spa</div>
-      <div class="h-type">5★ MGallery · in Colmar</div>
-      <div class="h-price">≈ €390–480 <small>/ 2 nights, with the early deal</small></div>
-      <div class="chips"><span class="chip">5★</span><span class="chip">500 m² spa</span><span class="chip warn">25% off — book before 30 Jun 2026</span></div>
-      <p class="h-desc">Strong value — a five-star spa hotel in Colmar with a time-limited 25% discount. About 13 minutes from Riquewihr; spa access is one hour a day.</p>
-      <a class="h-link" href="https://www.lesquisse-colmar.com" target="_blank" rel="noopener">Visit the hotel ↗</a>
+      <div class="h-name">Hôtel Le Ménestrel — Ribeauvillé</div>
+      <div class="h-type">3★ · fully renovated modern rooms</div>
+      <div class="h-price">≈ €240–320 <small>/ 2 nights</small></div>
+      <div class="chips"><span class="chip">Renovated rooms</span><span class="chip">Jacuzzi + sauna</span><span class="chip">Free parking</span><span class="chip">Best value</span></div>
+      <p class="h-desc">Best value — modern renovated rooms in the pretty town of Ribeauvillé, ten minutes from Riquewihr. Book a "Troubadours" or "Ménétriers" room.</p>
+      <a class="h-link" href="https://www.hotel-la-tour.com/en/hotel-3-stars-ribeauville" target="_blank" rel="noopener">Visit the hotel ↗</a>
     </article>
     <article class="hotel reveal">
-      <div class="h-name">Hostellerie des Châteaux &amp; Spa</div>
-      <div class="h-type">4★ · in Ottrott, north of the wine route</div>
-      <div class="h-price">≈ €560–680 <small>/ 2 nights</small></div>
-      <div class="chips"><span class="chip">4★</span><span class="chip">Huge 2,500 m² spa</span><span class="chip warn">~50 min from Riquewihr</span></div>
-      <p class="h-desc">An enormous spa — but it sits about 50 minutes from Riquewihr, a long way from where the rest of the Alsace days happen.</p>
-      <a class="h-link" href="https://www.hostellerie-chateaux.fr" target="_blank" rel="noopener">Visit the hotel ↗</a>
+      <div class="h-name">ibis Styles Colmar Nord</div>
+      <div class="h-type">Modern chain · with a heated pool</div>
+      <div class="h-price">≈ €180–280 <small>/ 2 nights</small></div>
+      <div class="chips"><span class="chip">Modern</span><span class="chip">Heated pool</span><span class="chip">Free parking</span><span class="chip">Budget</span></div>
+      <p class="h-desc">The budget pick — a fresh, modern chain hotel with a heated pool, handy if we want a day in Colmar too. About 15 minutes from Riquewihr.</p>
+      <a class="h-link" href="https://all.accor.com/hotel/0416/index.en.shtml" target="_blank" rel="noopener">Visit the hotel ↗</a>
     </article>
   </div>
 </section>
@@ -394,8 +357,8 @@
 <!-- ===== FOOTER ===== -->
 <section class="foot wrap">
   <div class="ornament reveal">✦ &nbsp; ✦ &nbsp; ✦</div>
-  <h2 class="ch-t reveal">Five homes for <em>two weeks</em> on the road</h2>
-  <p class="reveal">Tap any hotel above to see its own photos and rooms. Once we've chosen, the bookings can go ahead.</p>
+  <h2 class="ch-t reveal">Five clean, comfortable <em>homes on the road</em></h2>
+  <p class="reveal">Every hotel here is modern, well-located and under €200 a night. Tap any one to see its own photos and rooms.</p>
   <p class="reveal" style="margin-top:1.3rem;"><a href="index.html">The trip lookbook</a> &nbsp;·&nbsp; <a href="activities.html">The day-by-day journey</a></p>
   <div class="signoff reveal">
     For <b>Janine &amp; Alex</b> · France · 15–28 August 2026
